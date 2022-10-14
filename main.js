@@ -1,20 +1,36 @@
 let taskName = document.getElementById('taskText').value;
-let taskContainer = document.querySelector('.task-list');
+let taskContainer = document.querySelector('#taskList');
 
-function updateTaskName(){
-    taskName = document.getElementById('taskText').value;
+function checkTask(event){
+    let inputState = event.target.childNodes[0].checked;
+    event.target.childNodes[0].checked = !inputState;
 }
 
-function addTask(){
+function addtask(){
+    //update the addtask Name
+    taskName = document.getElementById('taskText').value;
     if (taskName){
-        this.name = taskName;
-        this.div = document.createElement('div');
-        this.div.className = 'taskElement';
-        this.div.innerHTML = `<p>${taskName}</p> <div class="taskButton">DELETE</div>`
-        taskContainer.appendChild(this.div); 
+        taskitem = document.createElement("li");
+        taskitem.classList.add('taskItem');
+
+        checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.classList.add('checkbox');
+
+        label = document.createElement('label')
+        label.setAttribute('for', 'checkbox');
+        label.innerText = taskName;
+
+        span = document.createElement('span');
+        span.classList.add('deleteTaskIcon');
+        span.innerHTML =  '&#x2715;';
+
+        taskitem.append(checkbox, label, span);
+        taskContainer.appendChild(taskitem);
+
+        taskText.value = '';
     }
 }
 
-addTaskBtn.addEventListener('click', addTask);
-taskText.addEventListener('onchange', updateTaskName)
-
+taskList.addEventListener('click', checkTask);
+addTaskBtn.addEventListener('click', addtask);

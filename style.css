@@ -1,0 +1,49 @@
+
+#taskText {
+    width: 675px;
+    height: 39px;
+}
+
+.list-container {
+    height: 300px;
+    overflow: auto;
+}
+.taskItem{
+    font-size: 20px;
+    background-color:aquamarine;
+    width: 675px;
+    height: 45px;
+    border-radius: 5px;
+    border-color: gray;
+    border: 0.50px solid;
+    cursor: pointer;
+}
+
+ul{  
+    list-style-type: none;
+    position: relative;
+    left:-4%;
+}  
+
+.task-form{
+    width: 750px;
+    height:fit-content;
+    background-color: orange;
+    border-radius: 3px;
+}
+
+#addTaskBtn{
+    height: 43px;
+    width: 50px;
+}
+
+.deleteTaskIcon{
+    position: absolute;
+    left: 680px;
+    width: 25px;
+    background-color:rgba(255, 6, 6, 0.89);
+}
+
+input:checked + label {
+    text-decoration: line-through;
+}
