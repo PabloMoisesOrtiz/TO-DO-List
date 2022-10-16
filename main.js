@@ -1,14 +1,21 @@
-let taskName = document.getElementById('taskText').value;
-let taskContainer = document.querySelector('#taskList');
-
-function checkTask(event){
+function HandleClicks(event){
+    // Delete Task
+    if (event.target.classList.contains("deleteTaskIcon")){
+        console.log('shfesblfy');
+        event.currentTarget.removeChild(event.target.parentElement);
+    }
+     
+    //Check and Uncheck the input feild 
     let inputState = event.target.childNodes[0].checked;
     event.target.childNodes[0].checked = !inputState;
 }
 
+
 function addtask(){
     //update the addtask Name
-    taskName = document.getElementById('taskText').value;
+    const taskName = document.getElementById('taskText').value;
+    let taskContainer = document.querySelector('#taskList');
+
     if (taskName){
         taskitem = document.createElement("li");
         taskitem.classList.add('taskItem');
@@ -21,7 +28,7 @@ function addtask(){
         label.setAttribute('for', 'checkbox');
         label.innerText = taskName;
 
-        span = document.createElement('span');
+        span= document.createElement('span');
         span.classList.add('deleteTaskIcon');
         span.innerHTML =  '&#x2715;';
 
@@ -32,5 +39,5 @@ function addtask(){
     }
 }
 
-taskList.addEventListener('click', checkTask);
+taskList.addEventListener('click', HandleClicks);
 addTaskBtn.addEventListener('click', addtask);
